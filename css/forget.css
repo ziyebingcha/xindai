@@ -1,0 +1,47 @@
+.bg{
+	width: 100vw;
+	height: 100vh;
+	background: url(../img/login-bg.png) no-repeat;
+	background-size:100% 100% ;
+}
+.register-box{
+    position: absolute;
+    top: 20%;
+    width: 80%;
+    left: 10%;
+}
+.register-box dl{
+    display: flex;
+    align-items: center;
+    height:50px;
+    border-bottom:1px solid #fff;
+
+}
+.register-box dl>dt{
+    width: 70px;
+    color: #fff;
+    flex-shrink: 0;
+}
+.buf_item dd input{
+    width:100%;
+    height:100%;
+    font-size: 16px;
+    background: transparent;
+    color: #fff;
+}
+.buf_item  button{   
+    border-radius: 5px;
+    width: 140px;
+    height: 25px;   
+    background-color: #ffedda;
+    color: #ff850b;
+}
+.btn{
+    margin-top: 35px;
+    width:100%;
+    height: 40px;   
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #ffedda;
+    color: #ff850b;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/vip_buy.css">
+    <title>VIP</title>
+</head>
+<body>
+    <div class="vip-box">
+        <div class="vip-item">
+           <div class="item-content">
+               <p>
+                   <span class="icon">
+                       <span>LVI</span>高级会员
+                   </span>
+                   <span>&yen;198.00</span>
+               </p>
+               <p>时间：永久有效</p>
+               <p>权限：升级高级会员LV1，想瘦精养卡收益、无卡支付收
+                   益、贷款收益、违章代缴收益、招商收益、办卡收益</p>
+           </div>
+            <button>立即购买</button>
+        </div>
+        <div class="vip-item">
+           <div class="item-content vip2">
+               <p>
+                   <span class="icon">
+                       <span>LVI</span>高级会员
+                   </span>
+                   <span>&yen;198.00</span>
+               </p>
+               <p>时间：永久有效</p>
+               <p>权限：升级高级会员LV1，想瘦精养卡收益、无卡支付收
+                   益、贷款收益、违章代缴收益、招商收益、办卡收益</p>
+           </div>
+            <button>立即购买</button>
+        </div>
+        <div class="vip-item">
+           <div class="item-content vip3">
+               <p>
+                   <span class="icon">
+                       <span>LVI</span>高级会员
+                   </span>
+                   <span>&yen;198.00</span>
+               </p>
+               <p>时间：永久有效</p>
+               <p>权限：升级高级会员LV1，想瘦精养卡收益、无卡支付收
+                   益、贷款收益、违章代缴收益、招商收益、办卡收益</p>
+           </div>
+            <button>立即购买</button>
+        </div>
+    </div>
+ 
+    <div id="vip_buy">
+        <div class="vip_buy-title">
+            <img class="close" src="img/close.png">
+            <p>会员购买</p>
+        </div>
+        <div class="vip_buy-content">
+            <p>&yen;198.00</p>
+            <p>购买项目 <span>高级会员</span></p>
+        </div>
+        <div class="vip_buy-checked">
+            <p>选择支付方式</p>
+            <p>
+                <span><img src="img/wechat.png" alt="">微信</span>
+                <span>
+                    <img src="img/checked1.png"  class="wechat-checked" alt="">
+
+                </span>
+            </p>
+            <button class="btn-buy">立即购买</button>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <ul class="nav"></ul>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layer.js"></script>
+<script>
+$(document).ready(function () {
+    $('.nav').load('nav.html');
+})
+$('.vip-item').click(function(){
+    $(".mask").css("height",$(document).height());
+    $(".mask").css("width",$(document).width());
+    $(".mask").show();
+    $('#vip_buy').css('display','block');
+
+})
+
+$('.close').click(function(){
+    $('#vip_buy').css('display','none');
+    $(".mask").hide();
+})
+$('.wechat-checked').click(function(){
+    var src=$('.wechat-checked').attr('src');
+    console.log(src);
+    if(src=='img/checked1.png'){$('.wechat-checked').attr('src','img/checked.png');}
+    else if(src=='img/checked.png'){$('.wechat-checked').attr('src','img/checked1.png');}
+})
+$('.btn-buy').click(function(){
+    var src=$('.wechat-checked').attr('src');
+    if(src!=='img/checked.png'){
+        layer.msg("请选择支付方式",{time:1500});
+    }
+})
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/problem.css">
+    <title>常见问题</title>
+</head>
+<body>
+    <div class="problem-box">
+
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+    var page = 1, //分页码
+        off_on = false, //分页开关(滚动加载方法 1 中用的)
+        timers = null; //定时器(滚动加载方法 2 中用的)
+
+    var Loadpage = function(page) {
+        $.ajax({
+            type:'post',
+            url:'',
+            data:{pageNo:page,pageSize:10},
+            success:function (data){
+
+                var dom = '';
+                for (var p of data ) {
+                    dom += `
+                        <div class="problem-item">
+                            <p>2、如何免费学习</p>
+                            <div>
+                             力转型已成为当今中国经济发展的核心关键词，转型主题下的商业社会，既充满机遇也遍布挑战。在举国上下探索经济发展新动能，追求经济高质量增长的背景
+                             代的发展与变迁寻找到商业机会、如何不断优化商业模式、如何增强企业系统性核下，企业家们不得不审慎思考作为经济微观主
+                             体的企业自身该 如何结合时心竞争。
+                            </div>
+                        </div>
+                        `
+                }
+                $('.problem-box').append(dom);
+            },
+            error:function () {alert(data.msg);}
+        })
+        off_on = true;
+    };
+    $(document).ready(function() {
+        Loadpage();
+    });
+    $(window).scroll(function() {
+        if (($(window).height() + $(window).scrollTop() + 60) >= $(document).height()) {
+            clearTimeout(timers);
+            timers = setTimeout(function() {
+                page++;
+                // console.log("第" + page + "页");
+                Loadpage(page);
+            }, 300);
+        }
+    });
+</script>
+</html>

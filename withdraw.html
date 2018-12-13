@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/withdraw.css">
+    <title>银行卡提现</title>
+</head>
+<body>
+	<form method="post" action="{:url('user/apply')}">
+		<div class="top">
+		    <p id="extractable">
+		        可提现金额（元）<span>34,656.34</span>
+		    </p>
+		    <p>请输入提现金额（元）</p>
+		    <div>
+		        <input type="text" id="money">
+		    </div>
+		</div>
+		<div class="bind-box">
+		    <dl class="buf_item">
+		        <dt>持卡人</dt>
+		        <dd>
+		            <input type="text" id="uname" placeholder="输入持卡人姓名">
+		        </dd>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>卡号</dt>
+		        <dd>
+		            <input type="number" id="card" placeholder="输入卡号">
+		        </dd>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>开户行</dt>
+		        <dd>
+		            <input type="text" id="open_bank" placeholder="输入开户行">
+		        </dd>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>手机号</dt>
+		        <dd>
+		            <input type="number" id="phone" placeholder="输入预留手机号">
+		        </dd>
+		    </dl>
+		</div>
+		
+		<button class="btn" onclick="return tijiao()">提 现</button>
+	</form>
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layer.js"></script>
+<script src="js/float_mony.js"></script>
+<script >
+var tijiao=function(){
+    var phone=$('#phone').val().trim();
+    var uname=$('#uname').val().trim();
+    var card=$('#card').val().trim();
+    var open_bank=$('#open_bank').val().trim();
+    var extractable= tonum($('#extractable>span').html());
+    var money=parseFloat($('#money').val().trim());
+    if(!money){layer.msg("请输入提现金额",{time:1500})}
+    else if(money>extractable){layer.msg("提现金额不能超过现有金额",{time:1500})}
+    else if(!uname){layer.msg("请输入持卡人姓名",{time:1500})}
+    else if(!card){layer.msg("请输入卡号",{time:1500})}
+    else if(!open_bank){layer.msg("请输入开户行",{time:1500})}
+    else if(!phone){layer.msg("请输入预留手机号",{time:1500})}
+  	else{
+	  $.ajax({
+            type:'post',
+            url:$("form").attr('action'),
+            data:$("form").serialize(),
+            success:function (data){
+                if(data.code==1){
+                    layer.msg("正在跳转...",{time:1500});
+                    location.href=data.data
+                }else{
+                    layer.msg(data.msg,{time:1500});
+                }
+            },
+            error:function () {
+
+            }
+
+        })
+    }
+    return false;
+}
+</script>
+</html>

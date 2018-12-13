@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/update.css">
+    <title>修改密码</title>
+</head>
+<body >
+	<div class="bg">
+		<form class="register-box" method="post" action="{:url('user/apply')}">
+			
+		    <dl class="buf_item">
+		        <dt>手机号</dt>
+		        <dd>
+		            <input type="number" id="phone" >
+		        </dd>
+		        <button class="yzm" onclick='yanzheng()'>获取验证码</button>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>验证码</dt>
+		        <dd>
+		            <input type="number" id="code">
+		        </dd>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>原密码</dt>
+		        <dd>
+		            <input type="password" id="upwd">
+		        </dd>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>新密码</dt>
+		        <dd>
+		            <input type="password" id="npwd">
+		        </dd>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>确认密码</dt>
+		        <dd>
+		            <input type="password" id="cpwd">
+		        </dd>
+		    </dl>
+		    <button class="btn" onclick="tijiao()">确 定</button>
+		</form>
+		
+	</div>
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layer.js"></script>
+<script >
+var yanzheng=function(){
+    var phone=$('#phone').val().trim();
+    var phoneReg=/^1([0-9][0-9]|5[189]|8[6789])[0-9]{8}$/;
+    if(!phone) {
+        layer.msg("请输入手机号", {time: 1500})
+    }else if(!phoneReg.test(phone)){
+        layer.msg("请输入正确的手机号码", {time: 1500})
+    }else{
+        //获取验证码
+        var time=60;
+        var timer=setInterval(function(){
+            time--;
+            $('.yzm').html(time+'秒');
+            if(time<=0){
+                clearInterval(timer);
+                $('.yzm').html('再次获取');
+            }
+        },1000);
+    }
+}
+$('#cpwd').blur(function(){
+    var npwd=$('#npwd').val().trim();
+    var cpwd=$('#cpwd').val().trim();
+    if(npwd!==cpwd){
+        layer.msg("两次密码不一致",{time:1500});
+    }
+})
+var tijiao=function(){
+    var phone=$('#phone').val().trim();
+    var code=$('#code').val().trim();
+    var upwd=$('#upwd').val().trim();
+    var npwd=$('#npwd').val().trim();
+    var cpwd=$('#cpwd').val().trim();
+    if(!phone){layer.msg("请输入手机号",{time:1500})}
+    else if(!code){layer.msg("请输入验证码",{time:1500})}
+    else if(!upwd){layer.msg("请输入密码",{time:1500})}
+    else if(!npwd){layer.msg("请输入新密码",{time:1500})}
+    else if(!cpwd){layer.msg("请输入确认密码",{time:1500})}
+    else if(npwd!==cpwd){
+        layer.msg("两次密码不一致",{time:1500});
+    }else{
+	  $.ajax({
+            type:'post',
+            url:$("form").attr('action'),
+            data:$("form").serialize(),
+            success:function (data){
+                if(data.code==1){
+                    layer.msg("正在跳转...",{time:1500});
+                    location.href=data.data
+                }else{
+                    layer.msg(data.msg,{time:1500});
+                }
+            },
+            error:function () {
+
+            }
+
+        })
+    }
+    return false;
+}
+
+</script>
+</html>

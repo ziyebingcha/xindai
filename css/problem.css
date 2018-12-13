@@ -1,0 +1,18 @@
+body{background: #F3F3F3}
+.problem-box{
+    margin:20px 10px  70px 10px;
+}
+.problem-item{
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.problem-item>p{
+	font-size:15px;
+	margin: 5px 0;
+}
+.problem-item>div{
+	font-size:13px ;
+	margin-bottom:5px;
+}

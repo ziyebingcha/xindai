@@ -1,0 +1,92 @@
+body{
+    background: #f3f3f3;
+}
+.loan-top{
+    position: relative;
+    top:0;
+    background: url("../img/bg.png") no-repeat;
+    background-size: 100% 100%;
+    width: 100% ;
+    height:180px ;
+}
+.loan-top>div{
+    position: relative;
+    top:0;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    height: 180px;
+}
+.loan-top>div>div{
+    display: flex;
+    background: #fff;
+    position: relative;
+    top:95px;
+    width: 90%;
+    margin-left: 5%;
+    height:100px ;
+    padding: 20px;
+    box-shadow: 0px 0px 13px 0px
+    rgba(0, 0, 0, 0.28);
+    border-radius: 5px;
+}
+.loan-top>div>div>img{
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+.loan-top-detail>p{
+    font-size: 13px;
+    color: #999;
+   margin-bottom: 1px;
+
+}
+.loan-top-detail>p>span{
+    color: #ff850b;
+}
+.loan-top-detail>p:first-child{
+    font-size: 16px;
+    margin-bottom: 3px;
+    color: #000;
+}
+.loan-detail-box{
+    margin-top: 20px;   
+    padding: 10px 0;
+}
+.detail-title{
+    line-height: 30px;
+    padding: 10px;   
+  
+    background: #fff;
+    border-bottom: 1px solid #F3F3F3;
+  
+}
+.detail-title:before{
+	position: relative;
+	top:3px;
+	content: " ";
+	display: inline-block;
+	width: 3px;
+	height: 18px;
+	background-color: #ff850b;
+	margin-right: 5px;
+	
+}
+.detail-content{
+	background: #fff;
+    padding: 15px 5px 0px 5px;
+}
+.detail-content>p{
+	font-size: 13px;
+	padding: 5px 0;
+}
+.detail-two{
+    margin-top: 15px;
+}
+.btn{
+    width: 90%;
+    height: 40px;
+    background: #000;
+    color: #f1bc00;
+    margin: 15px 5%;
+    border-radius: 5px;
+}

@@ -1,0 +1,25 @@
+
+.item-content{
+    width: 90%;
+    margin:20px 5% 90px;
+    background: url("../img/vipbg.png");
+    background-size:100% 100% ;
+    color: #fff;
+    padding: 20px 12px;
+    text-align: left;
+}
+.item-content>p{
+    font-size: 14px;
+    margin: 10px 0;
+    line-height: 25px;
+}
+.icon>span{
+    background-color: #fddf8a;
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 0 10px ;
+    margin-right: 5px;
+}
+.icon{
+    font-size: 16px !important;
+}

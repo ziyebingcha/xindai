@@ -1,0 +1,178 @@
+.user-msg{
+    width: 100%;
+    height: 215px;
+    border: 1px solid #ddd;
+    background: url(../img/userbg.png);
+    background-size: 100% 100%;
+    color: #fff;
+}
+.user-tx{
+    margin: 20px 10px;
+    display: flex;
+}
+.user-tx>img{
+    width: 60px;
+    height:60px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.user-tx>div{
+    height: 60px;
+    padding: 10px 0;
+}
+.user-tx>div>p:first-child{
+    font-size: 15px;
+    margin-bottom: 1px;
+    color: #fff;
+}
+.user-tx>div>p>span{
+    display: block;
+    background: #fff;
+    padding: 0 10px;
+    border-radius:10px;
+    font-size: 15px;
+    color: #ffc273;
+}
+.user-tx>div>p>span>img{
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+.jine{
+    margin:0 30px;
+}
+.jine>p:first-child{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.jine>p:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+}
+.jine>p:nth-child(2)>span{
+    font-size: 30px;
+    margin: 5px 0;
+}
+.jine>p:nth-child(2)>a{
+    font-size: 15px;
+    margin: 10px 0;
+    color: #fff;
+}
+.jine>p:nth-child(2)>a>img{
+      width: 7px;
+    margin-top: -3px;
+}
+
+.user-team{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    height: 50px;
+    background: #fff;
+    padding: 5px;
+    border-radius:23px ;
+    position: absolute;
+    box-shadow: 0px 15px 27px 1px rgba(0, 0, 0, 0.09);
+    top:190px;
+    left: 5%;
+}
+.user-team>img{
+    width: 33px;
+    height: 27px;   
+    margin-top:5px;
+}
+
+.user-team>div>p:first-child{
+    color: #ff850b;
+    font-size: 14px;
+}
+.user-team>div>p:last-child{
+    font-size: 12px;color: #999999;
+}
+.user-team>a{
+    color: #ff850b;
+    font-size: 15px;
+    padding: 8px;
+}
+.user-team>a>img{
+    width: 8px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.user-box{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    flex-wrap: wrap;
+    padding: 60px 0;
+}
+.user-item{
+    width: 33.3%;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 20px 10px;
+}
+.user-item>p{
+    color: #666666;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.user-item>img{
+    width: 22px;
+}
+/*弹出层*/
+.tixian{
+    background: #fff;
+    z-index: 100;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    display: none;
+}
+.tixian>p{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 17px;
+}
+.tixian>.buy-by{
+    padding:10px 5px;
+}
+.tixian>.buy-by>p{
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+}
+.tixian>.buy-by>p>span>img{
+    width: 25px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: -1px;
+}
+.tixian>.buy-by>p>span:last-child>img{
+    width: 15px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: -1px;
+}
+.tixian>.buy-btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+}
+.tixian>.buy-btn>a{
+    display: block;
+    width: 50%;
+    text-align: center;
+    background: black;
+    padding: 10px;
+    color: #f1bc00;
+}
+.tixian>.buy-btn>a:last-child{
+    background-color: #d2cece;
+    color: #fff;
+}

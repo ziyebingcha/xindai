@@ -1,0 +1,36 @@
+
+.bn_item{
+    float:left;
+    width:20%;
+}
+.bn_item a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:3px 0;
+}
+.b_nav_pic{
+    width:30px;
+    height:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.b_nav_pic img{
+    transform: scale(0.55);
+}
+.b_nav_pic img:first-child{display: none}
+.bn_item p{
+    font-size:13px;
+    color:#999;
+}
+.bn_item:nth-child(3)>a>img{
+    width: 70px;
+    position: relative;
+    top: -9px;
+}
+.bn_item:nth-child(3)>a>p{
+    position: relative;
+    top: -45px;
+    color: #fff;
+}

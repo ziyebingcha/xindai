@@ -1,0 +1,28 @@
+body{
+    background: #f3f3f3;
+}
+.msg-item{
+    display: flex;
+    margin: 20px 10px;
+    justify-content: space-between;
+}
+.msg-item>img{
+    height: 35px;
+    margin-right: 10px;
+}
+.msg-item>div>p{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+.msg-item>div>p>span{
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+}
+.msg-item>div>div{
+    font-size: 15px;
+    background: #fff;
+    padding: 10px;
+    line-height: 22px;
+}

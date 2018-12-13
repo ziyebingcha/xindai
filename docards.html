@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ido.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <title>我办卡</title>
+
+</head>
+<body>
+<div class="card-nav">
+    <a class="check cardone" href="ido.html">
+        <img src="img/docard/card-blur.png" />信用卡
+    </a>
+    <a class="check cardtwo active" href="docards.html">
+        <img src="img/docard/carding.png" />办卡进度
+    </a>
+</div>
+
+<div class="doing-box">
+    <div class="doing-card">
+
+    </div>
+</div>
+
+<ul class="nav"></ul>
+</body>
+<script src="js/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var page = 1, //分页码
+        off_on = false, //分页开关(滚动加载方法 1 中用的)
+        timers = null; //定时器(滚动加载方法 2 中用的)
+
+    var Loadpage = function(page) {
+        $.ajax({
+            type:'get',
+            url:'',
+            data:{pageNo:page,pageSize:10},
+            success:function (data){
+
+                var dom = '';
+                for (var p of data ) {
+                    dom += `
+                     <a class="doing-item" src="">
+                        <img src="img/docard/gf.png" />
+                        <p>招商银行</p>
+                     </a>
+                 `
+                }
+                $('.doing-card').append(dom);
+            },
+            error:function () {alert(data.msg);}
+        })
+        off_on = true;
+    };
+    $(document).ready(function() {
+        Loadpage();
+        $('.nav').load('nav.html');//导航菜单加载
+    });
+    $(window).scroll(function() {
+        if (($(window).height() + $(window).scrollTop() + 60) >= $(document).height()) {
+            clearTimeout(timers);
+            timers = setTimeout(function() {
+                page++;
+                console.log("第" + page + "页");
+                Loadpage(page);
+            }, 300);
+        }
+    });
+
+</script>
+</html>

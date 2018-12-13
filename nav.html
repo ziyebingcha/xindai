@@ -1,0 +1,68 @@
+
+    <!--<ul class="bottom_nav clear_float">-->
+        <li class="bn_item">
+            <a href="index.html">
+                <div class="b_nav_pic">
+                    <img src="img/nav/index.png" alt="" />
+                    <img src="img/nav/index-blur.png" alt="" />
+                </div>
+                <p>技术云</p>
+            </a>
+        </li>
+        <li class="bn_item">
+            <a href="ido.html">
+                <div class="b_nav_pic">
+                    <img src="img/nav/card.png" alt="" />
+                    <img src="img/nav/card-blur.png" alt="" />
+                </div>
+                <p>快云卡</p>
+            </a>
+        </li>
+        <li class="bn_item">
+            <a href="vip_buy.html">
+                <img src="img/nav/vip.png" alt="" />
+                <!--<p>买会员</p>-->
+            </a>
+        </li>
+
+        <li class="bn_item">
+            <a href="loan.html">
+                <div class="b_nav_pic">
+                    <img src="img/nav/loan.png" alt="" />
+                    <img src="img/nav/loan-blur.png" alt="" />
+                </div>
+                <p>云时贷</p>
+            </a>
+        </li>
+        <li class="bn_item">
+            <a href="user_center.html">
+                <div class="b_nav_pic">
+                    <img src="img/nav/user.png" alt="" />
+                    <img src="img/nav/user-blur.png" alt="" />
+                </div>
+                <p>云天空</p>
+            </a>
+        </li>
+
+    <!--</ul>-->
+    <script>
+        var html=location.pathname.split('/')[2];        
+        if(html=='index.html'){
+            $('.bn_item:first-child img:first-child').css('display','block').siblings().css('display','none');
+            $('.bn_item:first-child p').css('color','#ff850b');
+        }else if(html=='ido.html'){
+            $('.bn_item:nth-child(2) img:first-child').css('display','block').siblings().css('display','none');
+            $('.bn_item:nth-child(2) p').css('color','#ff850b');
+        }else if(html=='docards.html'){
+            $('.bn_item:nth-child(2) img:first-child').css('display','block').siblings().css('display','none');
+            $('.bn_item:nth-child(2) p').css('color','#ff850b');
+        }else if(html=='loan.html'){
+            $('.bn_item:nth-child(4) img:first-child').css('display','block').siblings().css('display','none');
+            $('.bn_item:nth-child(4) p').css('color','#ff850b');
+        }else if(html=='user_center.html'){
+            $('.bn_item:nth-child(5) img:first-child').css('display','block').siblings().css('display','none');
+            $('.bn_item:nth-child(5) p').css('color','#ff850b');
+        }
+
+
+    </script>

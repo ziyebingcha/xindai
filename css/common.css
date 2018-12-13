@@ -1,0 +1,82 @@
+*{
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+}
+body{
+	width: 100%;
+}
+.black{
+	width: 100%;
+	background: black;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+}
+img{
+	vertical-align: middle;
+}
+ul,ol{
+	list-style:none;
+}
+button{
+	border:none;
+	outline: none;
+	text-align: center;
+}
+input{
+	border:none;
+	outline: none;
+}
+
+/*清除浮动*/
+.clear_float:after{
+	content:"";
+	display: block;
+	clear: both;
+}
+/*单行文字超出隐藏*/
+.pl_hidden{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/*满屏固定定位*/
+.full_fixed{
+	position: fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+}
+/*居中绝对定位*/
+.center_absolute{
+	position: fixed;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+.nav{
+	position: fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	background: #fff;
+	border-top:1px solid #ddd ;
+	height: 60px;
+}
+/*遮罩层*/
+.mask{
+	position: absolute;
+	top: 0px;
+	filter: alpha(opacity=70);
+	background-color: #000;
+	z-index: 50;
+	left: 0px;
+	opacity:0.4;
+	-moz-opacity:0.4;
+	display: none;
+}
+
