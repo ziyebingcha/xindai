@@ -1,0 +1,47 @@
+.title{
+    text-align: center;
+    margin: 20px;
+    font-size: 19px;
+}
+.bind-box{
+    position: absolute;
+    /*top: 20%;*/
+    width: 90%;
+    left: 5%;
+}
+.bind-box dl{
+    display: flex;
+    align-items: center;
+    height:50px;
+    border-bottom:1px solid #e5e5e5;
+
+}
+.bind-box dl>dt{
+    width:70px;
+    color: #000;
+    flex-shrink: 0;
+}
+
+.buf_item dd input{
+    width:100%;
+    height:100%;
+    font-size: 16px;
+}
+.buf_item  button{
+    background-color: #000;
+    border-radius: 5px;
+    width: 140px;
+    height: 25px;
+    color: #f1bc00;
+}
+.btn{
+    
+    margin-top: 40px ;
+    width:100%;
+    height: 40px;
+    color: #f1bc00;
+    font-size: 16px;
+    background-color: #000;
+    border-radius: 5px;
+
+}

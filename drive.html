@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/drive.css" />
+    <title>直推查询</title>
+
+</head>
+<body>
+<ul class="riqi_box" >
+    <li class="partner_item active" data-id="t01">
+        <p>当日</p>
+    </li>
+    <li class="partner_item" data-id="t02">
+        <p>当月</p>
+    </li>
+    
+</ul>
+<ul class="partner_box" data-select="p01">
+    <li class="partner xiahuaxian" data-id="p01">
+        <p>直推信贷</p>
+    </li>
+    <li class="partner" data-id="p02">
+        <p>直推信用卡</p>
+    </li>
+</ul>
+
+<div class="partner_details">
+    <div class="pd_box block" id="p01">
+       
+    </div>
+    
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script>
+	 var page = 1, //分页码
+        type = 1, //类型
+        timer =1, //时间
+        off_on = false, //分页开关(滚动加载方法 1 中用的)
+        timers = null; //定时器(滚动加载方法 2 中用的)
+        type=parseInt($('.xiahuaxian').data('id').slice(2));
+        timer=parseInt($('.active').data('id').slice(2));
+        // console.log(type,timer)
+    var Loadpage = function(page,type,timer) {
+        $.ajax({
+            type:'post',
+            url:'',
+            data:{type:type,timer:timer, pageNo:page,pageSize:10},
+            success:function (data){
+
+                var dom = '';
+                for (var p of data ) {
+                    dom += `
+                      <div class="earn-item">
+				            <div>
+				                <img src="img/cardbg.png" alt="">
+				                <div>
+				                    <p>夏天 </p>
+				                    <p><span><img src="img/index/Vip2.png" alt="">VIP</span></p>
+				                    <p>申请时间：2018-5-4 15：56：45</p>
+				                </div>
+				            </div>
+				           <p>中国建设银行</p>
+				        </div>
+                        `
+                }
+                $('.pd_box').append(dom);
+
+
+            },
+            error:function () {alert(data.msg);}
+        })
+        off_on = true;
+    };
+    $(document).ready(function() {
+        Loadpage();
+    });
+    $(window).scroll(function() {
+        if (($(window).height() + $(window).scrollTop() + 60) >= $(document).height()) {
+            clearTimeout(timers);
+            timers = setTimeout(function() {
+                page++;
+                // console.log("第" + page + "页");
+                Loadpage(page,type,timer);
+            }, 300);
+        }
+    });
+    //点击日期切换
+    $(".partner_item").click(function(){
+        var tid=$(this).data("id");
+        timer=parseInt(tid.slice(2));
+        $('.pd_box').html("");
+        Loadpage(1,type,timer);
+        console.log(type,timer);
+        $(this).addClass("active").siblings(".active").removeClass("active");
+
+    })
+    //点击类型切换
+    $(".partner").click(function(){
+        var select_id=$(this).data("id");
+        type=parseInt(select_id.slice(2));
+        $('.pd_box').html("");
+        Loadpage(1,type,timer);
+        // console.log(type,timer);
+        $(this).addClass("xiahuaxian").siblings(".xiahuaxian").removeClass("xiahuaxian");
+    })
+
+
+
+</script>
+</body>
+</html>

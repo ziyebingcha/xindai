@@ -1,0 +1,55 @@
+body{background-color: #303030;}
+.haibao{
+    width: 280px;
+    height: 450px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    margin:20px auto;
+}
+.haibao>img{
+    width: 100%;
+    height: 100%;
+}
+.btn{
+    width: 90%;
+    height: 40px;
+    background-color: #000;
+    border-radius: 5px;
+    color: #f1bc00;
+    margin:20px 5% ;
+}
+/*分享*/
+.share-box{
+    width: 100%;
+    height:140px ;
+    background: #efeff4;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+}
+.share-box>div{
+    display: flex;
+    padding: 10px 20px 2px 20px ;
+    text-align: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #999;
+}
+.share-box>div>div{
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+}
+.share-box>div>div>img{
+    width: 60px;
+}
+.share-box>a{
+    display:block ;
+    background-color: #efeff4;
+    width: 100%;
+    color: #666666;
+    text-align: center;
+    font-size: 18px;
+    line-height: 48px;
+
+}

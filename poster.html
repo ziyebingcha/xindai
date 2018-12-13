@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/poster.css">
+    <title>海报</title>
+</head>
+<body>
+    <div class="haibao">
+
+    </div>
+    <button class="btn" onclick="share()">分享</button>
+    <div class="mask"></div>
+    <div class="share-box">
+        <div>
+            <div class="wexin">
+                <img class="share" src="img/nav/qq.png" alt="">
+                <p>QQ好友</p>
+            </div>
+            <div class="wexin">
+                <img class="share" src="img/nav/weixin.png" alt="">
+                <p>微信好友</p>
+            </div>
+            <div class="pengyou">
+                <img class="share"  src="img/nav/pengyouquan.png" alt="">
+                <p>朋友圈</p>
+            </div>
+            <div class="erweima">
+                <img class="share"  src="img/nav/erweima.png" alt="">
+                <p>二维码</p>
+            </div>
+        </div>
+        <a onclick="quxiao()">取消</a>
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script >
+	var share=function(){
+        $(".mask").css("height",$(document).height());
+        $(".mask").css("width",$(document).width());
+        $('.mask').show();
+        $('.share-box').show();
+    }
+    var quxiao=function(){
+        $('.share-box').hide();
+        $('.mask').hide();
+    }
+</script>
+</html>

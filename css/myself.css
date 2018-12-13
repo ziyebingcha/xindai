@@ -1,0 +1,37 @@
+.msg-box,.msg-title{
+    padding: 15px;
+}
+.msg-title{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 10px solid #f3f3f3;
+}
+.msg-title>p>img{
+    width: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.msg-title>a>img{
+    width: 8px;
+    vertical-align: middle;
+    margin-top: 15px;
+}
+.msg-box>.msg-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+.msg-box>.msg-item>a{
+    color: #999;
+}
+.msg-box>.msg-item>a>img{
+     width: 8px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.msg-box>.msg-item>span{
+     color: #999;
+    margin-right: 15px;
+ }

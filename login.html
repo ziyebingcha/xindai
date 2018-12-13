@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>登录</title>
+</head>
+<body>
+	<div class="bg">
+		<form class="login-box" method="post" action="{:url('user/apply')}">			
+			<dl class="buf_item">
+	            <dt>手机号</dt>
+	            <dd>
+	                <input type="text" name='' id="phone" >
+	            </dd>
+	        </dl>
+	        <dl class="buf_item">
+	            <dt>密码</dt>
+	            <dd>
+	                <input type="password" name="" id="upwd">
+	            </dd>
+	        </dl>			
+	        <button class="btn" onclick="tijiao()">登 录</button>
+	        
+		    <div class="update">
+		        <a href="update.html">修改密码</a>
+		        <a href="forget.html">忘记密码？</a>
+		    </div>
+		    <div class="thrid">
+		    	<p>第三方授权登录</p>
+		    	<img src="img/login-w.png" alt="" />
+		    </div>
+	    </form>
+	</div>
+   
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layer.js"></script>
+<script>
+var tijiao=function(){
+    var phone=$('#phone').val().trim();
+    var phoneReg=/^1([0-9][0-9]|5[189]|8[6789])[0-9]{8}$/;
+    var upwd=$('#upwd').val().trim();
+    if(!phone){layer.msg("请输入手机号",{time:1500})}
+    else if(!phoneReg.test(phone)){
+        layer.msg("请输入正确的手机号码", {time: 1500})
+    }else if(!upwd){layer.msg("请输入密码",{time:1500})}    
+    else{
+	  $.ajax({
+            type:'post',
+            url:$("form").attr('action'),
+            data:$("form").serialize(),
+            success:function (data){
+                if(data.code==1){
+                    layer.msg("正在跳转...",{time:1500});
+                    location.href=data.data
+                }else{
+                    layer.msg(data.msg,{time:1500});
+                }
+            },
+            error:function () {
+
+            }
+
+        })
+    }
+    return false;
+}
+</script>
+</html>

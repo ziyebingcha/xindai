@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+	function changeMoney(money) {
+        var fraction = ['角', '分'];    
+        var digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];    
+        var unit = [ ['元', '万', '亿'], ['', '拾', '佰', '仟']  ];    
+        var head = n < 0? '欠': '';    
+        n = Math.abs(n);    
+        var s = '';    
+        for (var i = 0; i < fraction.length; i++){    
+           s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');    
+        }    
+        s = s || '整';    
+        n = Math.floor(n);  
+        for (var i = 0; i < unit[0].length && n > 0; i++) { 
+            var p = '';    
+            for (var j = 0; j < unit[1].length && n > 0; j++){   
+                p = digit[n % 10] + unit[1][j] + p;    
+                n = Math.floor(n / 10);    
+            }    
+            s = p.replace(/(零.)*零$/, '').replace(/^$/, '零')  + unit[0][i] + s;    
+        }    
+        return head + s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整');    
+    }
+	    
+	    console.log(changeMoney('-120000002'));
+    
+    
+	var changRiskCode=function (riskCode){
+			codeObj=[
+				{"riskCode":"3101","riskName":"河南省水稻种植保险（C款）"},
+				{"riskCode":"3102","riskName":"河南省温室大棚保险（商业性）"},
+				{"riskCode":"3103","riskName":"河南省香菇种植保险（政策性）"},
+				{"riskCode":"3104","riskName":"河南省商业性玉米种植保险"},
+				{"riskCode":"3105","riskName":"河南省地方财政辣椒价格保险"},
+				{"riskCode":"3106","riskName":"河南省中央财政小麦收入保险（金融支农创新试点专用）"},
+				{"riskCode":"3107","riskName":"河南省小麦种植保险（C款）"},
+				{"riskCode":"3108","riskName":"河南省油菜种植保险（C款）"},
+				{"riskCode":"3109","riskName":"河南省地方财政樱桃种植保险"},
+				{"riskCode":"3110","riskName":"河南省中央财政水稻收入保险"},
+				{"riskCode":"3111","riskName":"河南省地方财政莲藕种植保险"},
+				{"riskCode":"3112","riskName":"河南省地方财政芝麻种植保险"},
+				{"riskCode":"3113","riskName":"河南省地方财政花生种植高保障保险"},
+				{"riskCode":"3114","riskName":"河南省玉米种植保险（C款）"},
+				{"riskCode":"3115","riskName":"河南省商业性花生种植高保障保险"},
+				{"riskCode":"3116","riskName":"河南省地方政策性苗木种植保险"},
+				{"riskCode":"3117","riskName":"河南省中央财政大灾专属水稻保险（适用新型农业经营主体）"},
+				{"riskCode":"3118","riskName":"河南省地方政策性花卉种植保险"},
+				{"riskCode":"3119","riskName":"河南省商业性油茶种植保险"},
+				{"riskCode":"3120","riskName":"河南省杞县地方财政大蒜价格保险（扶贫专用）"},
+				{"riskCode":"3121","riskName":"河南省中央财政大灾专属小麦保险（适用新型农业经营主体）"},
+				{"riskCode":"3122","riskName":"河南省棉花种植保险（C款）"},
+				{"riskCode":"3123","riskName":"河南省中央财政花生种植高保障保险（适用于新型农业经营主体）"},
+				{"riskCode":"3125","riskName":"河南省烟叶种植保险"},
+				{"riskCode":"3126","riskName":"河南省大豆种植保险（C款）"},
+				{"riskCode":"3131","riskName":"河南省农作物火灾保险"},
+				{"riskCode":"3139","riskName":"河南省石榴种植保险（商业性）"},
+				{"riskCode":"3140","riskName":"河南省玉米区域产量保险（A款）"},
+				{"riskCode":"3157","riskName":"河南省花生种植保险（C款）"},
+				{"riskCode":"3158","riskName":"河南省小麦种植保险（B款）"},
+				{"riskCode":"3159","riskName":"河南省小麦种植高保障保险（适用新型农业经营主体，政策性）"},
+				{"riskCode":"3160","riskName":"河南省高标准粮田水稻种植保险"},
+				{"riskCode":"3161","riskName":"河南省玉米种植保险（B款）"},
+				{"riskCode":"3162","riskName":"河南省玉米种植保险（A款）"},
+				{"riskCode":"3163","riskName":"河南省公益林综合保险"},
+				{"riskCode":"3164","riskName":"河南省商品林综合保险"},
+				{"riskCode":"3165","riskName":"河南省小麦区域产量保险"},
+				{"riskCode":"3166","riskName":"河南省水稻种植高保障保险（适用新型农业经营主体，政策性）"},
+				{"riskCode":"3167","riskName":"河南省辣椒种植保险"},
+				{"riskCode":"3168","riskName":"河南省小麦种植收入保险"},
+				{"riskCode":"3169","riskName":"河南省蔬菜种植保险（商业性）"},
+				{"riskCode":"3170","riskName":"河南省树莓种植保险（商业性）"},
+				{"riskCode":"3172","riskName":"河南省苹果种植保险"},
+				{"riskCode":"3173","riskName":"河南省葡萄种植保险"},
+				{"riskCode":"3174","riskName":"河南省梨树种植保险"},
+				{"riskCode":"3175","riskName":"河南省香菇种植保险（商业性）"},
+				{"riskCode":"3176","riskName":"河南省果树低温冻害保险（商业性）"},
+				{"riskCode":"3177","riskName":"河南省优质小麦种植保险"},
+				{"riskCode":"3178","riskName":"河南省蔬菜制种保险（商业性）"},
+				{"riskCode":"3179","riskName":"河南省小麦收入保险"},
+				{"riskCode":"3180","riskName":"河南省温室大棚保险（政策性）"},
+				{"riskCode":"3181","riskName":"河南省蔬菜种植保险（政策性）"},
+				{"riskCode":"3182","riskName":"河南省辣椒种植保险（政策性）"},
+				{"riskCode":"3183","riskName":"河南省葡萄种植保险（政策性）"},
+				{"riskCode":"3184","riskName":"河南省梨树种植保险（政策性）"},
+				{"riskCode":"3185","riskName":"河南省苹果种植保险(政策性)"},
+				{"riskCode":"3188","riskName":"河南省树莓种植保险（政策性）"},
+				{"riskCode":"3190","riskName":"河南省核桃种植保险（政策性）"},
+				{"riskCode":"3191","riskName":"河南省枣树种植保险（政策性）"},
+				{"riskCode":"3192","riskName":"河南省桃树种植保险(政策性)"},
+				{"riskCode":"3193","riskName":"河南省石榴种植保险（政策性）"},
+				{"riskCode":"3194","riskName":"河南省果树低温冻害保险（政策性）"},
+				{"riskCode":"3195","riskName":"河南省核桃种植保险（商业性）"},
+				{"riskCode":"3196","riskName":"河南省枣树种植保险（商业性）"},
+				{"riskCode":"3197","riskName":"河南省桃树种植保险(商业性)"},
+				{"riskCode":"3198","riskName":"河南省济源市地方财政蔬菜制种保险"},
+				{"riskCode":"3199","riskName":"河南省茶叶（茶树）种植保险"},
+				{"riskCode":"31R0","riskName":"云南苹果树种植保险"},
+				{"riskCode":"31R1","riskName":"云南咖啡树种植保险"}	
+				]
+			for(var i=0;i<codeObj.length;i++){				
+				if (parseInt(codeObj[i].riskCode)==parseInt(riskCode)){
+					return codeObj[i].riskName;
+				}					
+			}			
+		}
+	console.log(changRiskCode(3195));
+	</script>
+</html>

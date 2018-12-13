@@ -1,0 +1,51 @@
+.pd_box{
+    
+    padding: 0 15px;
+}
+.earn-item{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    padding: 20px 0 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.earn-item>div{
+    display: flex;
+}
+.earn-item>div>img{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.earn-item>div>div>p{
+    font-size: 18px;
+    margin-top: 3px;
+}
+.earn-item>div>div>p:last-child{
+    font-size: 12px;
+    color: #999999;
+}
+.earn-item>div>div>p>span{
+    background-color: #ff850b;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    padding:0 10px ;
+}
+.earn-item>div>div>p>span>img{
+    width: 10px;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-top: -3px;
+}
+.earn-item>.shouyi{
+    font-size: 17px;
+    color: #ff850b;
+    margin-top: 13px;
+}
+.earn-item>.shouyi>span{
+    font-size: 24px;
+    margin-top:-5px;
+
+}

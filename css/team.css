@@ -1,0 +1,93 @@
+body{
+    background: #f3f3f3;
+}
+.team-msg,.team-box{
+    width: 90%;
+    margin: auto;
+    border-radius: 5px;
+}
+.team-msg{
+    margin-top: 20px;
+    color: #000;
+    background: #fff;
+}
+.team-box{
+    margin-top:10px;
+    background: #fff;
+}
+.title{
+    padding:10px 20px;
+    font-size: 16px;
+    border-bottom:1px solid #f3f3f3 ;
+}
+p.title:before{
+    content: "";
+    width:3px;
+    height:12px;
+    background: #FF7300;
+    margin-right:4px;
+    display: inline-block;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+.team-msg>div{
+    display: flex;
+    padding: 10px ;
+    margin-top: 15px;
+}
+.team-msg>div>div>p:first-child>span{
+    display: inline-block;
+    background-color: #ff850b;
+    padding: 0 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #fff;
+}
+.team-msg>div>div>p:first-child>span>img{
+    width: 9px;
+    margin-top: -3px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+.team-msg>div>div{width: 100%;}
+.team-msg>div>a>img{
+    width:50px ;
+    margin-right: 5px;
+}
+.team-msg>div>div>p:first-child{
+    font-size: 16px;
+}
+.team-msg>div>div>p:nth-child(2){
+    font-size: 13px;
+    margin-top: 5px;
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+}
+.team-msg>div>div>p:nth-child(2)>img{
+    width: 80px;
+    height: 25px;
+    vertical-align: middle;
+    margin-top: -20px;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 0;
+    font-size: 14px;
+}
+.list-item:last-child{
+    border-bottom: none;
+}
+.list-item span img{
+    width: 18px;
+}
+.list-item .jiantou{
+    width: 7px;
+    height: 11.7px;
+}
+
+

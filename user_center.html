@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/user_center.css">
+
+    <title>用户中心</title>
+</head>
+<body>
+    <div class="user-msg">
+        <a href="myself.html" class="user-tx">
+            <img src="img/index/icon.png" alt="">
+            <div>
+                <p>夏天</p>
+                <p>
+                    <span><img src="img/index/Vip2.png" alt="">VIP</span>
+                </p>
+            </div>
+        </a>
+        <div class="jine">
+            <p>收益总额（元）</p>
+            <p>
+                <span>34,656.34</span>
+                <a id="tixian-btn">提现
+                    <img src="img/ti.png" alt="">
+                </a>
+            </p>
+            
+        </div>
+    </div>
+    <div class="user-team">
+        <img src="img/user/team.png" alt="">
+        <div>
+            <p>我的团队</p>
+            <p>我的上线、我的下线、邀请好友</p>
+        </div>
+        <a href="team.html">查看 <img src="img/right-color.png" alt=""></a>
+    </div>
+    <div class="user-box">
+        <a href="system_msg.html" class="user-item">
+            <img src="img/user/msg.png" alt="">
+            <p>我的消息</p>
+        </a>
+        <a href="account_details.html" class="user-item">
+            <img src="img/user/account.png" alt="">
+            <p>账户明细</p>
+        </a>
+        <a href="problem.html" class="user-item">
+            <img src="img/user/problem.png" alt="">
+            <p>常见问题</p>
+        </a>
+        <a href="notebook.html" class="user-item">
+            <img src="img/user/notebook.png" alt="">
+            <p>平台手册</p>
+        </a>
+        <a href="service.html" class="user-item">
+            <img src="img/user/service.png" alt="">
+            <p>联系客服</p>
+        </a>
+        <a href="advice.html" class="user-item">
+            <img src="img/user/advise.png" alt="">
+            <p>投诉建议</p>
+        </a>
+    </div>
+
+    <div class="mask"></div>
+
+    <div class="tixian center_absolute">
+        <p>请选择提现方式</p>
+        <div class="buy-by">
+            <p>
+                <span><img src="img/bank-card.png" alt="0">银行卡</span>
+                <span><img class="checked bank-card" src="img/checked1.png" ></span>
+            </p>
+            <p>
+                <span><img src="img/apply.png" alt="1">支付宝</span>
+                <span><img class="checked apply" src="img/checked1.png" ></span>
+            </p>
+        </div>
+        <div class="buy-btn">
+            <a id="ok">确定</a>
+            <a id="no">取消</a>
+        </div>
+    </div>
+
+    <ul class="nav"></ul>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('.nav').load('nav.html');
+})
+
+$('#tixian-btn').click(function(){
+    $(".mask").css("height",$(document).height());
+    $(".mask").css("width",$(document).width());
+    $('.mask').show();
+    $('.tixian').show();
+})
+$('.checked').click(function(e){
+    var src=$(e.target).attr('src');
+    var ok='img/checked.png';
+    var no ='img/checked1.png';
+    if(src==no){
+        $(e.target).attr('src',ok);
+        $(e.target).parents('p').siblings().children().find('.checked').attr('src',no);
+    }else if(src==ok){
+        $(e.target).attr('src',no);
+    }
+})
+$('#ok').click(function(){
+    var cardid=$('.bank-card').attr('src');
+    var applyid=$('.apply').attr('src');
+    var ok='img/checked.png';
+    var no ='img/checked1.png';
+    if(cardid==applyid==no){
+        layer.msg("请选择支付方式",{time:1500});
+    }else if(cardid==ok){
+        location.href='withdraw.html'
+    }else if(applyid==ok){
+        location.href='alipay.html'
+
+    }
+})
+$('#no').click(function(){
+    $('.mask').hide();
+    $('.tixian').hide();
+})
+
+</script>
+
+</html>

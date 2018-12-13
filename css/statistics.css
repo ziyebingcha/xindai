@@ -1,0 +1,32 @@
+body{background: #f3f3f3}
+.statis-box{
+    width: 90%;
+    margin:5% ;
+    background: #fff;
+    height: 180px;
+    border-radius: 5px;
+}
+.color{
+    display: inline-block;
+    width:3px;
+    height: 15px;
+    background:#ff850b ;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.statis-box>p{
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid #f3f3f3;
+}
+.statis-box>div{
+    text-align: center;
+    font-size: 14px;
+    color: #ff850b;
+}
+.statis-box>div>span{
+    display: inline-block;
+    font-size: 35px;
+    margin:45px 0;
+
+}

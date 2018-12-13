@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/myself_update.css" />
+    <title>我的资料</title>
+</head>
+<body>
+    <div class="msg-box">
+        <div class="msg-item">
+            <div class="icon">
+                <span>头像</span>
+                <img src="img/index/icon.png" alt="">
+            </div>
+        </div>
+        <div class="msg-item">
+            <div>
+                <span>昵称</span>
+                <div><input type="text" class="uname" placeholder="吕老师"></div>
+            </div>
+            <button class="btn" id="name">修改</button>
+        </div>
+        <div class="msg-item">
+            <div>
+                <span>所属地</span>
+                <div><input type="text" class="usite" placeholder="郑州"></div>
+            </div>
+            <button class="btn" id="site">修改</button>
+        </div>
+        <div class="msg-item">
+            <div class="erweima">
+                <span>微信二维码</span>
+                <div class="camera">
+                    <img id="headimg" src="img/erweima.png" class="imageup"/>
+                    <input id="uploadAvatar" type="file" accept="image/*" multiple name="file" onchange="onchangefiles()" />
+                </div>
+            </div>
+           	
+           <button class="btn" id="upload">上传</button>
+        </div>
+
+
+     
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layer.js"></script>
+<script>
+    $('#name').click(function(){
+	    var add=$('uname').val().trim();
+        $.ajax({
+            url:'',
+            data:data,
+            type:'post',
+            success:function()
+            {
+
+            }
+        })
+    })
+    $('#site').click(function(){
+	    var add=$('usite').val().trim();
+        $.ajax({
+            url:'',
+            data:data,
+            type:'post',
+            success:function()
+            {
+
+            }
+        })
+    })
+
+
+var file = document.querySelector("#uploadAvatar");
+var  onchangefiles = function(e){
+//	console.log(this);
+    var files = this.file.files[0];
+    console.log(files);
+    var reader = new FileReader();
+
+    //创建文件读取相关的变量
+    var imgFile;
+
+    //为文件读取成功设置事件
+    reader.onload=function(e) {
+    	console.log(e);
+        imgFile = e.target.result;
+        console.log(imgFile);
+        $("#headimg").attr('src', imgFile);
+    };
+     console.log(imgFile);
+    reader.readAsDataURL(files);
+
+    var formFile = new FormData();
+    formFile.append("action", "UploadVMKImagePath");
+    formFile.append("file", files);
+    var data = formFile;
+    console.log(data);
+    $.ajax({
+        url:'/home/uploadAvatar.html',
+        data:data,
+        type:'post',
+        cache: false,//上传文件无需缓存
+        processData: false,//用于对data参数进行序列化处理 这里必须false
+        contentType: false, //必须
+        dataType:'json',
+        success:function(res)
+        {
+            layer.msg(res.msg);
+            if(res.code == 0)
+            {
+                layer.msg("上传成功");
+                $(".sculpimg").attr('src',res.data);
+            }
+        }
+    })
+}
+
+
+
+</script>
+</html>

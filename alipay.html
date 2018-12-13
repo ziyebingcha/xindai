@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/alipay.css">
+    <title>支付宝提现</title>
+</head>
+<body>
+	<form action="">
+		<div class="top">
+		    <p id="extractable">
+		        可提现金额（元）<span>3546721.00</span>
+		    </p>
+		    <p>请输入提现金额（元）</p>
+		    <div>
+		        <input type="text" id="money">
+		    </div>
+		</div>
+		<div class="bind-box">
+		    <dl class="buf_item">
+		        <dt>支付宝账户</dt>
+		        <dd>
+		            <input type="text" id="alipay_num" placeholder="输入支付宝账户">
+		        </dd>
+		    </dl>
+		    <dl class="buf_item">
+		        <dt>手机号</dt>
+		        <dd>
+		            <input type="number" id="phone" placeholder="输入手机号">
+		        </dd>
+		    </dl>
+		</div>
+		
+		<button class="btn" onclick="tijiao()">提 现</button>
+	</form>
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/layer.js"></script>
+<script src="js/float_mony.js"></script>
+<script>
+
+var tijiao=function(){
+    var phone=$('#phone').val().trim();
+    var alipay_num=$('#alipay_num').val().trim();
+    var extractable= tonum($('#extractable>span').html());  
+    var money=parseFloat($('#money').val().trim());
+    if(!money){layer.msg("请输入提现金额",{time:1500})}
+    else if(money>extractable){layer.msg("提现金额不能超过现有金额",{time:1500})}
+    else if(!alipay_num){layer.msg("请输入支付宝账户",{time:1500})}
+    else if(!phone){layer.msg("请输入预留手机号",{time:1500})}
+   
+}
+</script>
+</html>

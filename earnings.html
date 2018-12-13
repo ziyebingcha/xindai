@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/earnings.css" />
+    <title>我的收益</title>
+</head>
+<body>
+<ul class="partner_box" data-select="p01">
+    <li class="partner_item active" data-id="p01">
+        <p>VIP收益</p>
+    </li>
+    <li class="partner_item" data-id="p02">
+        <p>信贷收益</p>
+    </li>
+    <li class="partner_item" data-id="p03">
+        <p>信用卡收益</p>
+    </li>
+</ul>
+
+<div class="partner_details">
+    <div class="pd_box block" id="p01">
+
+    </div>
+
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script >
+
+    var page = 1, //分页码
+        type = 1, //类型
+        off_on = false, //分页开关(滚动加载方法 1 中用的)
+        timers = null; //定时器(滚动加载方法 2 中用的)
+        type=parseInt($('.active').data('id').slice(2));
+
+
+    var Loadpage = function(page,type) {
+        $.ajax({
+            type:'post',
+            url:'',
+            data:{type:type, pageNo:page,pageSize:10},
+            success:function (data){
+
+                var dom = '';
+                for (var p of data ) {
+                    dom += `
+                    <div class="earn-item">
+                        <div>
+                            <img src="img/index/icon.png" alt="">
+                            <div>
+                                <p>夏天 <span><img src="img/index/Vip2.png" alt="">VIP</span></p>
+                                <p>成为一级会员</p>
+                            </div>
+                        </div>
+                        <div class="shouyi">
+                            <span>+20.00</span>元
+                        </div>
+                    </div>
+                        `
+                }
+                $('.pd_box').append(dom);
+
+
+            },
+            error:function () {alert(data.msg);}
+        })
+        off_on = true;
+    };
+    $(document).ready(function() {
+        Loadpage();
+    });
+    $(window).scroll(function() {
+        if (($(window).height() + $(window).scrollTop() + 60) >= $(document).height()) {
+            clearTimeout(timers);
+            timers = setTimeout(function() {
+                page++;
+                // console.log("第" + page + "页");
+
+                Loadpage(page,type);
+            }, 300);
+        }
+    });
+
+    //点击类型切换
+    $(".partner_item").click(function(){
+        var select_id=$(this).data("id");
+        type=parseInt(select_id.slice(2));
+        $('.pd_box').html("");
+        Loadpage(1,type);
+        console.log(type);
+        $(this).addClass("active").siblings(".active").removeClass("active");
+    })
+
+</script>
+</body>
+</html>
